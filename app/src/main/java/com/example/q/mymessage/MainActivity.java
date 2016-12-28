@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -34,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+//    private ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
+//        @Override
+//        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//        }
+//
+//        @Override
+//        public void onPageSelected(int position) {
+//
+//        }
+//
+//        @Override
+//        public void onPageScrollStateChanged(int state) {
+//        }
+//    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +64,17 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+//        mViewPager.addOnPageChangeListener(listener);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
 
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mViewPager.removeOnPageChangeListener(listener);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
